@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Oliventa
 
-## Getting Started
+Premium multilingual Next.js foundation for a Greek products brand with a dark editorial interface, lightweight Three.js hero preparation, and scalable routing for future e-commerce.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React
+- Tailwind CSS v4
+- Framer Motion
+- Three.js
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. The root route redirects to `/ro`, which is the default market language.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Folder structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+app/
+  [locale]/
+    about/
+    contact/
+    products/
+    quality/
+    layout.tsx
+    page.tsx
+components/
+  home/
+  layout/
+  three/
+  ui/
+data/
+  dictionaries/
+lib/
+public/
+  logo/
+  images/
+    editorial/
+    mockups/
+    products/
+  icons/
+```
 
-## Learn More
+## Where translations live
 
-To learn more about Next.js, take a look at the following resources:
+Local dictionaries are stored in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `data/dictionaries/ro.ts`
+- `data/dictionaries/en.ts`
+- `data/dictionaries/el.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Routing and locale helpers live in `lib/i18n.ts`.
 
-## Deploy on Vercel
+## Where to replace assets
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Drop future assets into:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `public/logo/`
+- `public/images/products/`
+- `public/images/mockups/`
+- `public/images/editorial/`
+- `public/icons/`
+
+The header currently uses a typographic brand mark as a placeholder until the final SVG logo is connected.
+
+## What is already prepared
+
+- Multilingual routing under `/ro`, `/en`, `/el`
+- Language switcher that preserves the current page and swaps locale
+- Shared premium layout with reusable sections, cards, buttons, header, and footer
+- Homepage scaffold with hero, featured categories, brand story, origin/quality, and inquiry CTA
+- Placeholder inner pages for About, Products, Quality / Origin, and Contact
+- Lightweight Three.js ambient canvas in `components/three/ambient-canvas.tsx`
+- Framer Motion section reveals for a more polished editorial feel
+
+## Future 3D and scroll extension
+
+The hero is intentionally structured for a later cinematic scene with:
+
+- floating bottle
+- olives and particles
+- scroll-linked parallax and lighting
+- richer camera choreography
+
+The current `AmbientCanvas` keeps the implementation light while reserving the correct component boundaries for a more advanced Three.js scene later.
